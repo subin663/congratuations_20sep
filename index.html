@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chúc Mừng Ngày Phụ Nữ Việt Nam 20/10</title>
+    <meta name="description"
+        content="Trang chúc mừng ngày Phụ nữ Việt Nam 20 tháng 10 - Gửi lời yêu thương đến những người phụ nữ tuyệt vời!" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap"
+        rel="stylesheet" />
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0d0008 0%, #1a0018 30%, #2d0030 60%, #1a000a 100%);
+            font-family: 'Be Vietnam Pro', sans-serif;
+            color: #fff8f0;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Stars */
+        .stars {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            border-radius: 50%;
+            background: #fff;
+            animation: twinkle var(--d, 3s) ease-in-out infinite alternate;
+        }
+
+        @keyframes twinkle {
+            from {
+                opacity: 0.1;
+                transform: scale(0.8);
+            }
+
+            to {
+                opacity: 0.9;
+                transform: scale(1.2);
+            }
+        }
+
+        /* Floating petals */
+        .petals-container {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .petal {
+            position: absolute;
+            top: -60px;
+            width: var(--s, 18px);
+            height: var(--s, 18px);
+            border-radius: 50% 0 50% 0;
+            background: var(--c, #e91e8c);
+            opacity: 0.75;
+            animation: fall var(--dur, 8s) linear var(--delay, 0s) infinite;
+            left: var(--x, 50%);
+        }
+
+        @keyframes fall {
+            0% {
+                top: -60px;
+                transform: translateX(0) rotate(0deg);
+                opacity: 0.8;
+            }
+
+            50% {
+                transform: translateX(80px) rotate(180deg);
+            }
+
+            100% {
+                top: 110vh;
+                transform: translateX(-40px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Page */
+        .page {
+            position: relative;
+            z-index: 2;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px 80px;
+        }
+
+        /* Date badge */
+        .date-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(233, 30, 140, 0.4);
+            border-radius: 50px;
+            padding: 8px 24px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #f8bbd9;
+            backdrop-filter: blur(8px);
+            animation: fadeSlideDown 0.8s ease both;
+            margin-bottom: 36px;
+        }
+
+        .date-badge .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #ff4081;
+            animation: pulse 1.5s ease infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 1
+            }
+
+            50% {
+                transform: scale(1.6);
+                opacity: .5
+            }
+        }
+
+        /* Hero card */
+        .hero-card {
+            max-width: 780px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.045);
+            border: 1px solid rgba(233, 30, 140, 0.25);
+            border-radius: 32px;
+            padding: 60px 50px 50px;
+            text-align: center;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 0 80px rgba(233, 30, 140, 0.15), 0 40px 80px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+            animation: fadeSlideUp 1s ease 0.3s both;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-card::before {
+            content: '';
+            position: absolute;
+            top: -60%;
+            left: -40%;
+            width: 180%;
+            height: 180%;
+            background: radial-gradient(ellipse at center, rgba(233, 30, 140, 0.07) 0%, transparent 65%);
+            pointer-events: none;
+        }
+
+        .icon-rose {
+            font-size: 4.5rem;
+            line-height: 1;
+            margin-bottom: 18px;
+            display: block;
+            animation: floatIcon 3s ease-in-out infinite;
+        }
+
+        @keyframes floatIcon {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(-3deg)
+            }
+
+            50% {
+                transform: translateY(-12px) rotate(3deg)
+            }
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 6vw, 3.6rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #ffd6ea 0%, #ff80b0 40%, #ff4081 70%, #ffd54f 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: clamp(1rem, 3vw, 1.35rem);
+            color: #f8bbd9;
+            margin-bottom: 36px;
+            opacity: 0.85;
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            justify-content: center;
+            margin-bottom: 36px;
+        }
+
+        .divider-line {
+            flex: 1;
+            max-width: 80px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(233, 30, 140, 0.6));
+        }
+
+        .divider-line.right {
+            background: linear-gradient(90deg, rgba(233, 30, 140, 0.6), transparent);
+        }
+
+        .message {
+            font-size: clamp(0.95rem, 2.2vw, 1.1rem);
+            line-height: 1.9;
+            color: rgba(255, 220, 235, 0.9);
+            max-width: 580px;
+            margin: 0 auto 44px;
+        }
+
+        .message strong {
+            color: #ffb3d0;
+            font-weight: 600;
+        }
+
+        /* Wish cards */
+        .wishes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 48px;
+        }
+
+        .wish-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(233, 30, 140, 0.2);
+            border-radius: 20px;
+            padding: 24px 18px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            cursor: default;
+        }
+
+        .wish-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(233, 30, 140, 0.25);
+            border-color: rgba(233, 30, 140, 0.55);
+        }
+
+        .wish-icon {
+            font-size: 2.2rem;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .wish-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #ffc2de;
+            margin-bottom: 6px;
+            letter-spacing: 0.04em;
+        }
+
+        .wish-desc {
+            font-size: 0.82rem;
+            color: rgba(255, 200, 225, 0.65);
+            line-height: 1.6;
+        }
+
+        /* Quote */
+        .quote-box {
+            background: linear-gradient(135deg, rgba(194, 24, 91, 0.18), rgba(255, 64, 129, 0.1));
+            border-left: 4px solid #ff4081;
+            border-radius: 0 16px 16px 0;
+            padding: 22px 28px;
+            text-align: left;
+            margin-bottom: 44px;
+        }
+
+        .quote-box p {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: clamp(1rem, 2.5vw, 1.15rem);
+            color: #ffd6ea;
+            line-height: 1.8;
+        }
+
+        .quote-box cite {
+            display: block;
+            margin-top: 10px;
+            font-style: normal;
+            font-size: 0.8rem;
+            color: rgba(255, 180, 210, 0.6);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        /* Button */
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #c2185b, #e91e8c, #ff4081);
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            padding: 16px 42px;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Be Vietnam Pro', sans-serif;
+            cursor: pointer;
+            letter-spacing: 0.05em;
+            box-shadow: 0 8px 32px rgba(233, 30, 140, 0.45);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 16px 48px rgba(233, 30, 140, 0.6);
+        }
+
+        .cta-btn:active {
+            transform: scale(0.97);
+        }
+
+        .footer {
+            margin-top: 60px;
+            text-align: center;
+            font-size: 0.78rem;
+            color: rgba(255, 180, 210, 0.35);
+            letter-spacing: 0.06em;
+        }
+
+        /* Confetti */
+        .confetti-piece {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 10px;
+            height: 10px;
+            border-radius: 2px;
+            pointer-events: none;
+            animation: confettiBurst 1.4s ease forwards;
+            z-index: 999;
+        }
+
+        @keyframes confettiBurst {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+                opacity: 1
+            }
+
+            100% {
+                transform: translate(var(--tx), var(--ty)) rotate(720deg);
+                opacity: 0
+            }
+        }
+
+        @keyframes fadeSlideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        @keyframes fadeSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        @media (max-width: 520px) {
+            .hero-card {
+                padding: 40px 24px 36px;
+                border-radius: 24px;
+            }
+
+            .wishes-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="stars" id="stars"></div>
+    <div class="petals-container" id="petals"></div>
+
+    <div class="page">
+        <div class="date-badge">
+            <span class="dot"></span>
+            20 Tháng 10 · Ngày Phụ Nữ Việt Nam
+            <span class="dot"></span>
+        </div>
+
+        <div class="hero-card">
+            <span class="icon-rose">🌹</span>
+
+            <h1 class="hero-title">Chúc Mừng Ngày<br />Phụ Nữ Việt Nam</h1>
+            <p class="hero-subtitle">Kính tặng những người phụ nữ tuyệt vời nhất ✨</p>
+
+            <div class="divider">
+                <div class="divider-line"></div>
+                <span style="font-size:1.1rem">💖</span>
+                <div class="divider-line right"></div>
+            </div>
+
+            <p class="message">
+                Nhân ngày <strong>20 tháng 10</strong>, xin gửi đến tất cả các chị em
+                những lời chúc yêu thương nhất từ tận đáy lòng.<br /><br />
+                Chúc các chị em mãi mãi <strong>xinh đẹp, rạng rỡ</strong>,
+                luôn tỏa sáng trong cuộc sống và <strong>hạnh phúc trọn vẹn</strong>
+                bên những người thân yêu. Cảm ơn vì đã mang lại ánh sáng,
+                yêu thương và nghị lực cho mọi người xung quanh! 🌸
+            </p>
+
+            <div class="wishes-grid">
+                <div class="wish-card">
+                    <span class="wish-icon">🌺</span>
+                    <div class="wish-title">Sức Khỏe</div>
+                    <div class="wish-desc">Luôn tràn đầy năng lượng và vui vẻ mỗi ngày</div>
+                </div>
+                <div class="wish-card">
+                    <span class="wish-icon">💫</span>
+                    <div class="wish-title">Hạnh Phúc</div>
+                    <div class="wish-desc">Niềm vui ngập tràn, yêu thương không vơi cạn</div>
+                </div>
+                <div class="wish-card">
+                    <span class="wish-icon">🌟</span>
+                    <div class="wish-title">Thành Công</div>
+                    <div class="wish-desc">Mọi ước mơ đều được hiện thực hóa</div>
+                </div>
+                <div class="wish-card">
+                    <span class="wish-icon">🎀</span>
+                    <div class="wish-title">May Mắn</div>
+                    <div class="wish-desc">Bình an và may mắn theo bước chân mỗi ngày</div>
+                </div>
+            </div>
+
+            <div class="quote-box">
+                <p>"Phụ nữ là những bông hoa đặc biệt nhất — dù qua bao mưa gió, vẫn nở rộ với vẻ đẹp và sức mạnh phi
+                    thường."</p>
+                <cite>— Lời từ trái tim 💗</cite>
+            </div>
+
+            <button class="cta-btn" id="celebrateBtn" onclick="celebrate()">🎉 Gửi Yêu Thương!</button>
+        </div>
+
+        <footer class="footer">Được tạo với ❤️ · Ngày Phụ Nữ Việt Nam 20 / 10</footer>
+    </div>
+
+    <script>
+        // Stars
+        const starsEl = document.getElementById('stars');
+        for (let i = 0; i < 120; i++) {
+            const s = document.createElement('div');
+            s.className = 'star';
+            const size = Math.random() * 2.5 + 0.5;
+            s.style.cssText = `width:${size}px;height:${size}px;top:${Math.random() * 100}%;left:${Math.random() * 100}%;--d:${(Math.random() * 4 + 2).toFixed(1)}s;animation-delay:${(Math.random() * 5).toFixed(1)}s;`;
+            starsEl.appendChild(s);
+        }
+
+        // Petals
+        const petalsEl = document.getElementById('petals');
+        const pc = ['#e91e8c', '#ff4081', '#f06292', '#ffd6ea', '#c2185b', '#ff80ab', '#ffd54f'];
+        for (let i = 0; i < 28; i++) {
+            const p = document.createElement('div');
+            p.className = 'petal';
+            p.style.cssText = `--x:${Math.random() * 100}%;--s:${(Math.random() * 14 + 8).toFixed(0)}px;--c:${pc[Math.floor(Math.random() * pc.length)]};--dur:${(Math.random() * 8 + 6).toFixed(1)}s;--delay:-${(Math.random() * 12).toFixed(1)}s;`;
+            petalsEl.appendChild(p);
+        }
+
+        // Confetti
+        function celebrate() {
+            const colors = ['#ff4081', '#ffd54f', '#e91e8c', '#ffffff', '#f06292', '#ff80ab', '#c2185b'];
+            for (let i = 0; i < 60; i++) {
+                const c = document.createElement('div');
+                c.className = 'confetti-piece';
+                const angle = Math.random() * Math.PI * 2;
+                const dist = Math.random() * 340 + 80;
+                c.style.cssText = `background:${colors[Math.floor(Math.random() * colors.length)]};--tx:${Math.cos(angle) * dist}px;--ty:${Math.sin(angle) * dist}px;left:${50 + (Math.random() - .5) * 30}%;top:${50 + (Math.random() - .5) * 20}%;width:${Math.random() * 8 + 5}px;height:${Math.random() * 8 + 5}px;border-radius:${Math.random() > .5 ? '50%' : '2px'};animation-duration:${(Math.random() * .6 + 1).toFixed(2)}s;`;
+                document.body.appendChild(c);
+                setTimeout(() => c.remove(), 1600);
+            }
+            const btn = document.getElementById('celebrateBtn');
+            btn.textContent = '💖 Cảm ơn bạn!';
+            setTimeout(() => { btn.innerHTML = '🎉 Gửi Yêu Thương!'; }, 2500);
+        }
+    </script>
+</body>
+
+</html>
