@@ -402,18 +402,20 @@
             margin-bottom: 6px;
         }
 
-        @media (max-width: 520px) {
+        @media (max-width: 600px) {
             .sender-card {
                 flex-direction: column;
             }
 
             .sender-img {
                 width: 100%;
-                height: 220px;
+                height: auto;
+                max-height: none;
             }
 
             .sender-overlay {
                 text-align: center;
+                padding: 20px 20px 28px;
             }
         }
 
@@ -443,15 +445,6 @@
             animation: pulse 1.5s ease infinite;
         }
 
-        @media (max-width: 520px) {
-            .sender-overlay {
-                padding: 50px 24px 32px;
-            }
-
-            .sender-img {
-                max-height: 480px;
-            }
-        }
 
         .footer {
             margin-top: 60px;
